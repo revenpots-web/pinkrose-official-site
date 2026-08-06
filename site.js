@@ -14,11 +14,24 @@ function qrCard(store, label, url) {
   return url ? `<a class="download-card is-active" href="${url}" target="_blank" rel="noreferrer">${inside}</a>` : `<div class="download-card">${inside}</div>`;
 }
 
-async function policyPage(main) {
+const policyRoutes = {
+  "/terms": { title: "이용약관", file: "terms.txt", description: "Pink Rose 이용약관" },
+  "/privacy": { title: "개인정보처리방침", file: "privacy.txt", description: "Pink Rose 개인정보처리방침" },
+  "/community-guidelines": { title: "운영정책", file: "community-guidelines.txt", description: "Pink Rose 운영정책" }
+};
+
+function updatePolicyMetadata(policy) {
+  document.title = `${policy.title} | Pink Rose`;
+  document.querySelector('meta[name="description"]')?.setAttribute("content", policy.description);
+  document.querySelector('link[rel="canonical"]')?.setAttribute("href", `https://pinkrose.kr${location.pathname}`);
+}
+
+async function policyPage(main, policy) {
+  updatePolicyMetadata(policy);
+  main.innerHTML = `<div class="document-heading"><p class="eyebrow">Pink Rose Official</p><h1>${policy.title}</h1></div><pre id="policy-content" class="policy-text"></pre>`;
   main.insertAdjacentHTML("beforebegin", header());
-  const file = main.dataset.policyFile;
   const output = main.querySelector("#policy-content");
-  try { output.textContent = await (await fetch(`/policies/${file}`)).text(); } catch { output.textContent = "정책 문서를 불러오지 못했습니다."; }
+  try { output.textContent = await (await fetch(`/${policy.file}`)).text(); } catch { output.textContent = "정책 문서를 불러오지 못했습니다."; }
   main.insertAdjacentHTML("afterend", footer());
 }
 
@@ -28,4 +41,5 @@ function homePage(main) {
 }
 
 const main = document.querySelector("main");
-if (main?.dataset.policyFile) policyPage(main); else if (main) homePage(main);
+const path = location.pathname.replace(/\/$/, "") || "/";
+if (main && policyRoutes[path]) policyPage(main, policyRoutes[path]); else if (main) homePage(main);
