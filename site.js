@@ -2,7 +2,7 @@ const supportEmail = "pinkrose.support@gmail.com";
 const subject = "?subject=%5BPink%20Rose%20%EB%AC%B8%EC%9D%98%5D";
 
 function footer() {
-  return `<footer class="site-footer"><p>© 2026 Pink Rose</p><p>Contact: <a href="mailto:${supportEmail}">${supportEmail}</a></p><nav class="footer-nav" aria-label="푸터 메뉴"><a href="/terms">이용약관</a><a href="/privacy">개인정보처리방침</a><a href="/community-guidelines">운영정책</a><a href="/#contact">문의하기</a></nav></footer>`;
+  return `<footer class="site-footer"><p>© 2026 Pink Rose</p><p>Contact: <a href="mailto:${supportEmail}">${supportEmail}</a></p><nav class="footer-nav" aria-label="푸터 메뉴"><a href="/terms">이용약관</a><a href="/privacy">개인정보처리방침</a><a href="/community-guidelines">운영정책</a><a href="/delete-account">계정 삭제</a><a href="/#contact">문의하기</a></nav></footer>`;
 }
 
 function header() {
