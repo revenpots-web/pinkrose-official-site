@@ -1,1 +1,74 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>운영정책 | Pink Rose</title><meta name="description" content="Pink Rose 운영정책"><link rel="canonical" href="https://pinkrose.kr/community-guidelines"><meta property="og:title" content="운영정책 | Pink Rose"><meta property="og:type" content="website"><meta property="og:url" content="https://pinkrose.kr/community-guidelines"><link rel="icon" href="/pink-rose-logo.png"><link rel="stylesheet" href="/site.css"><script src="/site.js" defer></script></head><body><main class="document" data-policy-file="community-guidelines.txt"><div class="document-heading"><p class="eyebrow">Pink Rose Official</p><h1>운영정책</h1></div><pre id="policy-content" class="policy-text"></pre></main></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Pink Rose | Official</title>
+  <meta name="description" content="Pink Rose 공식 이용약관, 개인정보처리방침, 운영정책 및 아동 안전 정책 안내">
+  <link rel="canonical" href="https://pinkrose.kr/">
+  <meta property="og:title" content="Pink Rose | Official">
+  <meta property="og:description" content="Pink Rose 공식 정책 및 안내">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pinkrose.kr/">
+  <meta property="og:image" content="https://pinkrose.kr/pink-rose-logo.png">
+  <link rel="icon" href="/pink-rose-logo.png">
+  <link rel="stylesheet" href="/site.css">
+  <script src="/site-config.js"></script>
+</head>
+<body>
+  <main>
+    <section class="hero" aria-labelledby="site-title">
+      <div class="hero-copy">
+        <img class="brand-image" src="/pink-rose-logo.png" alt="Pink Rose 로고">
+        <p class="eyebrow">Pink Rose Official</p>
+        <h1 id="site-title">Pink Rose</h1>
+        <p class="lead">Pink Rose는 성인 이용자를 위한 커뮤니티 서비스입니다.<br>아래에서 서비스 이용약관과 정책을 확인하실 수 있습니다.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="policy-title">
+      <div class="section-heading"><p class="eyebrow">Policies</p><h2 id="policy-title">서비스 정책</h2></div>
+      <nav class="policy-links" aria-label="서비스 정책">
+        <a class="policy-card" href="/terms"><span>이용약관</span><span aria-hidden="true">→</span></a>
+        <a class="policy-card" href="/privacy"><span>개인정보처리방침</span><span aria-hidden="true">→</span></a>
+        <a class="policy-card" href="/community-guidelines"><span>운영정책</span><span aria-hidden="true">→</span></a>
+        <a class="policy-card" href="/child-safety"><span>아동 안전</span><span aria-hidden="true">→</span></a>
+        <a class="policy-card" href="/delete-account"><span>계정 및 데이터 삭제</span><span aria-hidden="true">→</span></a>
+      </nav>
+    </section>
+
+    <section class="section" aria-labelledby="download-title">
+      <div class="section-heading"><p class="eyebrow">Get the app</p><h2 id="download-title">앱 다운로드</h2></div>
+      <div id="download-grid" class="download-grid"></div>
+    </section>
+
+    <section id="contact" class="section contact" aria-labelledby="contact-title">
+      <div class="section-heading"><p class="eyebrow">Contact</p><h2 id="contact-title">문의하기</h2></div>
+      <p>문의 이메일</p>
+      <p class="email-address"><!--email_off--><a href="mailto:pinkrose.support@gmail.com?subject=%5BPink%20Rose%20%EB%AC%B8%EC%9D%98%5D">pinkrose.support@gmail.com</a><!--/email_off--></p>
+      <a class="button" href="mailto:pinkrose.support@gmail.com?subject=%5BPink%20Rose%20%EB%AC%B8%EC%9D%98%5D">이메일로 문의하기</a>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <p>© 2026 Pink Rose</p>
+    <p>Contact: <a href="mailto:pinkrose.support@gmail.com">pinkrose.support@gmail.com</a></p>
+    <nav class="footer-nav" aria-label="푸터 메뉴">
+      <a href="/terms">이용약관</a><a href="/privacy">개인정보처리방침</a><a href="/community-guidelines">운영정책</a><a href="/child-safety">아동 안전</a><a href="/delete-account">계정 삭제</a><a href="/#contact">문의하기</a>
+    </nav>
+  </footer>
+  <script>
+    (function () {
+      const config = window.PINK_ROSE_CONFIG || {};
+      const stores = [
+        { name: "Google Play", label: "Google Play에서 다운로드", url: config.GOOGLE_PLAY_URL || "" },
+        { name: "Apple App Store", label: "App Store에서 다운로드", url: config.APPLE_APP_STORE_URL || "" }
+      ];
+      const grid = document.getElementById("download-grid");
+      grid.innerHTML = stores.map((store) => {
+        const content = `<p class="store-name">${store.name}</p><p class="store-label">${store.label}</p><div class="qr-frame ${store.url ? "" : "qr-placeholder"}">${store.url ? `<img src="https://api.qrserver.com/v1/create-qr-code/?format=svg&size=280x280&data=${encodeURIComponent(store.url)}" alt="${store.name} 다운로드 QR 코드">` : ""}</div><p class="status">${store.url ? "QR 코드를 스캔하거나 이 영역을 눌러 다운로드하세요." : "준비 중"}</p>`;
+        return store.url ? `<a class="download-card is-active" href="${store.url}" target="_blank" rel="noreferrer">${content}</a>` : `<div class="download-card">${content}</div>`;
+      }).join("");
+    }());
+  </script>
+</body>
+</html>
