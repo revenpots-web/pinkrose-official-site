@@ -11,3 +11,4 @@ h1{font-family:Georgia,serif;font-size:38px;line-height:1.15;margin:10px 0 18px;
 @media(max-width:600px){.start{bottom:3.5%;min-height:46px;padding:8px 20px;font-size:15px;gap:7px}.start span{font-size:24px}.policies nav{grid-template-columns:1fr 1fr}.intro{padding:28px 0}h1{font-size:32px}}
 @media(max-width:380px){.start{bottom:1.5%;font-size:14px;padding-inline:16px}.policies nav{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){.start{transition:none}}
+@media(max-width:600px){.hero{padding-bottom:20px}.hero picture{display:block}.hero img{aspect-ratio:1;object-fit:contain}.hero .start{position:relative;left:auto;bottom:auto;transform:none;display:flex;width:calc(100% - 32px);max-width:360px;min-height:54px;margin:16px auto 0}}
